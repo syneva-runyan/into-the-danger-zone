@@ -1,0 +1,52 @@
+.profile-preview {
+    border: 1px solid black;
+    background-color: whitesmoke;
+    color: black;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 25px;
+    padding: 5px 25px;
+    transition: 0.25s ease-in-out;
+    transform: scale(100%);
+}
+
+.profile-preview:hover .profile-preview-image {
+    transform: scale(102%);
+}
+
+.profile-preview:hover .profile-preview-cta {
+    background-color: #2a303c;
+    color: white;
+}
+
+.profile-preview-info {
+    display: flex;
+}
+
+.profile-preview-image {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    box-shadow: 1px 1px 5px black;
+    border-radius: 100%;
+    display: block;
+    margin-right: 25px;
+    width: 75px;
+}
+
+.profile-preview-cta {
+    border-radius: 5px;
+    border: 2px solid #0c0e12;
+    color: black;
+    font-size: 15px;
+    padding: 5px 15px;
+    margin: 20px 0;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+.profile-preview-cta:hover, .profile-preview-cta:focus {
+    background-color: #2a303c;
+    color: white;
+}

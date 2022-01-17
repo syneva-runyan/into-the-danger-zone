@@ -1,0 +1,32 @@
+.input-field {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.input-field input {
+    font-size: 20px;
+    width: 250px;
+}
+
+.bio {
+    max-width: 70%;
+}
+
+.save {
+    padding: 10px;
+    background-color: #F3CE1B;
+    border: 1px solid black;
+}
+
+.saved {
+    color: #F3CE1B;
+}
+
+.view-profile {
+    background: none;
+    border: 0;
+    font-size: 20px;
+    color: #4fb1fe;
+}

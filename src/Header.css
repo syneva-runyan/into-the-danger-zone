@@ -1,0 +1,46 @@
+.header {
+    height: 50px;
+}
+
+.header-content {
+    height: 50px;
+    padding: 5px 25px;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+
+.banner {
+    background-image: url('./images/cautionBanner.png');
+    display: block;
+    height: 50px;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    top: 0;
+}
+
+.link {
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 5px;
+    color: black;
+    font-size: 15px;
+    margin-right: 10px;
+}
+
+.logo {
+    background-image: url('./images/dzIcon.png');
+    background-size: cover;
+    width: 35px;
+    height: 35px;
+    font-size: 0;
+    background-color: transparent;
+    border-radius: 100%;
+}

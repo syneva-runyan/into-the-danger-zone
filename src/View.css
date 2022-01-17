@@ -1,0 +1,49 @@
+.profile-header {
+    background-color: #000;
+    box-shadow: 0 4px 3px #e2e2e2;
+    display: flex;
+}
+
+.profile-name {
+    font-size: 35px;
+}
+
+.profile-links {
+    display: flex;
+}
+
+.profile-link {
+    background-size: 100% auto;
+    width: 40px;
+    height: 40px;
+    font-size: 0px;  
+    background-repeat: no-repeat;
+    background-position: center;
+    border-radius: 100%;
+    margin-right: 15px;
+}
+
+.profile-youtube {
+    background-color: red;
+    background-image: url('./images/youtubeIcon.png');
+}
+
+.profile-twitter {
+    background-color: white;
+    background-image: url('./images/twitter.jfif');
+}
+
+.profile-instagram {
+    background-image: url('./images/instagram.png');
+}
+
+.bio {
+    margin: 15px 50px;
+}
+
+.profile-image {
+    border-radius: 50px;
+    display: block;
+    margin: 0 25px 15px 0;
+    max-width: 200px;
+}
