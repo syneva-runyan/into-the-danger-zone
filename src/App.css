@@ -22,3 +22,11 @@
 a {
   color: #61dafb;
 }
+
+h1 {
+  font-size: 30px;
+}
+
+label {
+  padding-bottom: 5px;
+}

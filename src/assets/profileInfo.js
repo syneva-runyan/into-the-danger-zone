@@ -2,6 +2,8 @@ const kenny = {
     name: "Kenny 'Danger Zone' Loggins",
     image: './kennyLoggins.png',
     youtubeChannel: "https://www.youtube.com/channel/UCOU8fWGJPBlywN6816bRdLg",
+    twitter: "https://twitter.com/kennyloggins",
+    instagram: "https://www.instagram.com/thekennyloggins/",
     bio: `Kenneth Clark Loggins (born January 7, 1948) is an American musician, singer and songwriter. His early songs were recorded with the Nitty Gritty Dirt Band in 1970, which led to seven albums recorded as Loggins and Messina from 1972 to 1977.  src, 
     <a href="https://en.wikipedia.org/wiki/Kenny_Loggins">Wikipedia</a>`
 };

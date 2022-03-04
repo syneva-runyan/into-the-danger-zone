@@ -15,7 +15,7 @@ function ViewProfile({ profile = {} }) {
                     </div>
                 </div>
             </div>
-            <div className="bio">
+            <div className="bio section">
                 <h2 className="section-heading">About</h2>
                 <p dangerouslySetInnerHTML={{ '__html': profile.bio}} />
             </div>

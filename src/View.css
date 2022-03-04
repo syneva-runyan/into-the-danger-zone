@@ -37,10 +37,6 @@
     background-image: url('./images/instagram.png');
 }
 
-.bio {
-    margin: 15px 50px;
-}
-
 .profile-image {
     border-radius: 50px;
     display: block;
