@@ -5,7 +5,7 @@ function ViewProfile({ profile = {} }) {
     return (
         <div>
             <div className="profile-header section">
-                <img className="profile-image" src={profile.image} />
+                <img className="profile-image" src={profile.image} alt={profile.name} />
                 <div>
                     <h1 className="profile-name">{profile.name}</h1>
                     <div className="profile-links">

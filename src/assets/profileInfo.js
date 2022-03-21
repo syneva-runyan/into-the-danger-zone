@@ -28,8 +28,10 @@ const peteMitchell = {
 }
 
   
-export default {
+const people = {
     kenny,
     archer,
     peteMitchell
 };
+
+export default people;

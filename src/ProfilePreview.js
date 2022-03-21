@@ -12,7 +12,7 @@ function ProfilePreview({ profile = {}, onClick }) {
                 />
                 <p>{profile.name}</p>
             </div>
-            <a className="profile-preview-cta" onClick={onClick} tabIndex={0}>View Profile</a>
+            <a className="profile-preview-cta" onClick={onClick} href={`./${profile.name}`} tabIndex={0}>View Profile</a>
         </div>
     );
 };

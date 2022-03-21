@@ -5144,6 +5144,11 @@
   dependencies:
     "harmony-reflect" "^1.4.6"
 
+"idle-session-timeout@^1.0.1":
+  "integrity" "sha512-+R15gAepm7sYD3v9kPMmAjZNIyKXBVi8NUsAfhJ6JC2aeoJ60vrNtPm/Yp1Oq+g1NB8E2zBn/IpCFFEoyo0Fdw=="
+  "resolved" "https://registry.npmjs.org/idle-session-timeout/-/idle-session-timeout-1.0.1.tgz"
+  "version" "1.0.1"
+
 "ieee754@^1.1.4":
   "resolved" "https://registry.npmjs.org/ieee754/-/ieee754-1.2.1.tgz"
   "version" "1.2.1"

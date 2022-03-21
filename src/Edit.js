@@ -74,7 +74,7 @@ function EditProfile({ profile = {}, saveProfile = () => {}, goToProfile }) {
                         <label htmlFor={'name'}>Profile Picture</label>
                         <div className="edit-image">
                             <button className="upload-img-btn">Upload Image</button>
-                            <img className="profile-image" src={profile.image} />
+                            <img className="profile-image" src={profile.image} alt={profile.name} />
                         </div>
                         <div className='input-field'>
                             <label htmlFor={'name'}>Name</label>
@@ -94,11 +94,11 @@ function EditProfile({ profile = {}, saveProfile = () => {}, goToProfile }) {
                         </div>
                         <div className='input-field'>
                             <label htmlFor={'twitter'}>Twitter</label>
-                            <input id='twitter' value={twitter} onChange={setChannel}></input>
+                            <input id='twitter' value={twitter} onChange={setTwitter}></input>
                         </div>
                         <div className='input-field'>
                             <label htmlFor={'instagram'}>Instagram</label>
-                            <input id='instagram' value={instagram} onChange={setChannel}></input>
+                            <input id='instagram' value={instagram} onChange={setInstagram}></input>
                         </div>
                     </div>
                 </div>
