@@ -10,6 +10,7 @@
     position: fixed;
     z-index: 1;
     top: 0;
+    left: 0;
     overflow: hidden;
 }
 
@@ -23,7 +24,7 @@
     display: none;
 }
 
-body {
+body.timed-out {
     overflow: hidden;
     position: fixed;
 }

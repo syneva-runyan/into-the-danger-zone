@@ -1,6 +1,6 @@
 const kenny = {
     name: "Kenny 'Danger Zone' Loggins",
-    image: './kennyLoggins.png',
+    image: 'kennyLoggins.png',
     youtubeChannel: "https://www.youtube.com/channel/UCOU8fWGJPBlywN6816bRdLg",
     twitter: "https://twitter.com/kennyloggins",
     instagram: "https://www.instagram.com/thekennyloggins/",
@@ -10,7 +10,7 @@ const kenny = {
 
 const archer = {
     name: "Sterling Archer",
-    image: './archer.png',
+    image: 'archer.png',
     youtubeChannel: "https://www.youtube.com/channel/UCOU8fWGJPBlywN6816bRdLg",
     bio: `Sterling Malory Archer, best known as simply Archer, is the main character of the eponymous show who is considered to be the world's deadliest spy.
 

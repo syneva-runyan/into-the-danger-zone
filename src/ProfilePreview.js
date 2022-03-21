@@ -1,5 +1,6 @@
 import React from 'react';
 import './ProfilePreview.css';
+import { Link } from "react-router-dom";
 
 function ProfilePreview({ profile = {}, onClick }) {
     return (
@@ -12,7 +13,7 @@ function ProfilePreview({ profile = {}, onClick }) {
                 />
                 <p>{profile.name}</p>
             </div>
-            <a className="profile-preview-cta" onClick={onClick} href={`./${profile.name}`} tabIndex={0}>View Profile</a>
+            <Link className="profile-preview-cta" to={`./profile/${profile.key}`}>View Profile</Link>
         </div>
     );
 };

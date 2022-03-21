@@ -1,7 +1,14 @@
 import React from 'react';
 import './Header.css';
+import { NavLink } from "react-router-dom";
 
-function Header({ setCurrentView }) {
+function Header() {
+  const navLinkStyles = ({ isActive }) => {
+    return {
+      fontWeight: isActive ? "normal" : "bold",
+      backgroundColor: isActive ? "#f1cc11" : "white", 
+    };
+  };
   return (
     <div>
       <header className="header">
@@ -9,8 +16,8 @@ function Header({ setCurrentView }) {
         <div className="header-content">
         <button className="logo">Some Social Media Site</button>
         <nav>
-            <button className="link" onClick={() => {setCurrentView('edit') }}>Edit My Profile</button>
-            <button className="link"  onClick={() => {setCurrentView('browse') }}>Browse for Friends</button>
+            <NavLink className="link" style={navLinkStyles} to="/edit">Edit My Profile</NavLink>
+            <NavLink className="link" style={navLinkStyles} to="/">Browse for Friends</NavLink>
         </nav>
         </div>
       </header>

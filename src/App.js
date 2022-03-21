@@ -5,36 +5,20 @@ import ViewProfile from './View';
 import EditProfile from './Edit';
 import PeopleYouMayKnow from './PeopleYouMayKnow';
 import TimedOut from './TimedOut';
-import profileInfo from './assets/profileInfo';
+import profileInfoOg from './assets/profileInfo';
 import { IdleSessionTimeout } from "idle-session-timeout";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+} from "react-router-dom";
 
 // Time out session after 5 min of inactivity.
-let session = new IdleSessionTimeout(60 * 1000 * 5);
-
-function getCurrentView(currentView, setCurrentView, profile, setProfile, profileInfo) {
-  const goToProfile = (profileName) => {
-    setProfile(profileName);
-    setCurrentView('view');
-  };
-
-  switch(currentView) {
-    case 'view':
-      return <ViewProfile profile={profile} />;
-    case 'edit':
-      return (
-        <EditProfile
-          profile={profile}
-          saveProfile={setProfile}
-          goToProfile={() => {setCurrentView('view');}}
-        />);
-    default:
-      return <PeopleYouMayKnow profileInfo={profileInfo} goToProfile={goToProfile} />;
-  }
-}
+let session = new IdleSessionTimeout(1000 * 60 * 5);
 
 function App() {
-  const [currentView, setCurrentView] = useState('view');
-  const [profile, setProfile] = useState(profileInfo.kenny);
+  const [loggedInUser, setLoggedInUser] = useState('kenny'); // TODO create log ins
+  const [profileInfo, setProfileInfo] = useState(profileInfoOg); // TODO persist changes.
   const [isTimedOut, setIsTimedOut] = useState(false);
   session.onTimeOut = () => {
     // mock a timed out state.
@@ -42,14 +26,38 @@ function App() {
   };
   session.start();
 
+  const updateProfile = (updatedProfile) => {
+    setProfileInfo({
+      ...profileInfo,
+      [loggedInUser]: updatedProfile,
+    })
+  }
+
   return (
-    <div className="App">
-      <Header setCurrentView={setCurrentView} />
-      <main className="App-content">
-        {getCurrentView(currentView, setCurrentView, profile, setProfile, profileInfo)}
-        {isTimedOut && <TimedOut />}
-      </main>
-    </div>
+    <Router>
+      <div className="App">
+        <Header />
+        <main className="App-content">
+          <Routes>
+            <Route path="/profile/:profileId" element={<ViewProfile profileInfo={profileInfo} />} />
+            <Route
+              path="/edit"
+              element={
+                  <EditProfile
+                   profile={profileInfo[loggedInUser]}
+                   updateProfile={updateProfile}
+                />
+              }
+            />
+            <Route 
+              path="/"
+              element={<PeopleYouMayKnow profileInfo={profileInfo} />}
+            />
+        </Routes>
+          {isTimedOut && <TimedOut session={session} />}
+        </main>
+      </div>
+    </Router>
   );
 }
 

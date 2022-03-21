@@ -1,11 +1,15 @@
 import React from 'react';
 import './View.css';
+import { useParams } from "react-router-dom";
 
-function ViewProfile({ profile = {} }) {
+function ViewProfile({ profileInfo }) {
+    const { profileId } = useParams();
+    const profile = profileInfo[profileId]; // TODO when invalid profile id provided.
+
     return (
         <div>
             <div className="profile-header section">
-                <img className="profile-image" src={profile.image} alt={profile.name} />
+                <img className="profile-image" src={`/${profile.image}`} alt={profile.name} />
                 <div>
                     <h1 className="profile-name">{profile.name}</h1>
                     <div className="profile-links">

@@ -7,7 +7,7 @@ function PeopleYouMayKnow({ profileInfo = {}, goToProfile = () => {} }) {
             <h1 className="section-heading">You may know...</h1>
             {Object.keys(profileInfo).map(name => {
                 const onClick= () => goToProfile(profileInfo[name]);
-                return <ProfilePreview key={name} profile={profileInfo[name]} onClick={onClick} />;
+                return <ProfilePreview key={name} profile={{...profileInfo[name], key: name}} onClick={onClick} />;
             })}
         </div>
     );

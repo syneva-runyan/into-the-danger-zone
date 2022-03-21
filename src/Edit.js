@@ -2,7 +2,7 @@ import { useState } from 'react';
 import RTE from './RTE';
 import './Edit.css';
 
-function EditProfile({ profile = {}, saveProfile = () => {}, goToProfile }) {
+function EditProfile({ profile = {}, updateProfile = () => {}, goToProfile }) {
     const [name, setProfileName ] = useState(profile.name);
     const [youtubeChannel, setYoutubeChannel ] = useState(profile.youtubeChannel);
     const [twitter, setTwitter ] = useState(profile.twitter);
@@ -43,13 +43,14 @@ function EditProfile({ profile = {}, saveProfile = () => {}, goToProfile }) {
     //** Save profile when form is submitted */
     const save = (e) => {
         e.preventDefault();
-        saveProfile({
+        updateProfile({
             name,
             image: profile.image,
             youtubeChannel,
             bio,
         });
         setSaved(true);
+        alert("Changes Saved!");
     }
 
     const setChannel = (e) => {
@@ -82,6 +83,7 @@ function EditProfile({ profile = {}, saveProfile = () => {}, goToProfile }) {
                             setProfileName(e.target?.value) }
                             }></input>
                         </div>
+                        <hr className="section-divider" />
                         <div className="edit-section edit-profile-urls">
                             <h3>Social Profiles</h3>
                             <div className="save-container">

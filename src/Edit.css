@@ -68,6 +68,10 @@
     margin: auto;
 }
 
+.section-divider {
+    margin-top: 45px;
+}
+
 .save {
     cursor: pointer;
     padding: 10px;
