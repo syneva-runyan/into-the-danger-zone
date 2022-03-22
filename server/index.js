@@ -53,6 +53,27 @@ app.post('/updateProfile', function(req, res) {
     });
 });
 
+app.post('/resetProfileInfo', function(req, res) {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+
+    fs.readFile('./profileInfo_backup.json', 'utf8', (err, data) => {
+        if (err) {
+            console.log(`Error reading file from disk: ${err}`);
+            res.send("error");
+        } else {
+            const profileInfo = JSON.parse(data);
+            fs.writeFile('./profileInfo.json', JSON.stringify(profileInfo), (err) => {
+                if (err) {
+                    res.send("error");
+                } else {
+                    res.json({"status": "success", updatedProfiles: profileInfo });
+                    return;
+                }
+              });
+        }
+    });
+});
+
 var server =  app.listen(8080, function () {  
     var host = server.address().address;  
     var port = server.address().port;  

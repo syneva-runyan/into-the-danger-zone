@@ -1,17 +1,16 @@
-const setProfileInfo = async function(updatedProfile, profileKey) {
+const resetProfileInfo = async function() {
     const requestOptions = {
         method: "POST",
         headers: {
             "Content-type": "application/json"
         },
-        body: JSON.stringify({ updatedProfile, profileKey }),
     }; 
-    const response = await fetch("http://localhost:8080/updateProfile", requestOptions);
+    const response = await fetch("http://localhost:8080/resetProfileInfo", requestOptions);
     try {
-        const { status, updatedProfile } = await response.json();
+        const { status, updatedProfiles } = await response.json();
         if (status == 'success') {
             return {
-                updatedProfile,
+                updatedProfiles,
                 status,
             };
         } else {
@@ -25,4 +24,4 @@ const setProfileInfo = async function(updatedProfile, profileKey) {
     }
 };
 
-export default setProfileInfo;
+export default resetProfileInfo;

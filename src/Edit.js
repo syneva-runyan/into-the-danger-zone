@@ -45,12 +45,12 @@ function EditProfile({ profile = {}, updateProfile = () => {}, profileKey }) {
         e.preventDefault();
         e.stopPropagation();
         const { status, updatedProfile } = await setProfileInfo({
+            ...profile,
             name,
-            image: profile.image,
             youtubeChannel,
-            twitter,
             instagram,
-            bio,
+            twitter,
+            bio
         }, profileKey);
         if (status === 'success') {
             updateProfile(updatedProfile);

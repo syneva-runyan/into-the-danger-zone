@@ -42,7 +42,7 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Header />
+        <Header setProfileInfo={setProfileInfo} />
         <main className="App-content">
           <Routes>
             <Route path="/profile/:profileId" element={<ViewProfile profileInfo={profileInfo} />} />

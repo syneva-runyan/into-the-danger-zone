@@ -1,14 +1,19 @@
 import React from 'react';
 import './Header.css';
 import { NavLink } from "react-router-dom";
+import { resetProfileInfo } from './api';
 
-function Header() {
+function Header({ setProfileInfo }) {
   const navLinkStyles = ({ isActive }) => {
     return {
-      fontWeight: isActive ? "normal" : "bold",
-      backgroundColor: isActive ? "#f1cc11" : "white", 
+      fontWeight: isActive ? "bold" : "normal",
+      backgroundColor: isActive ? "#fff" : "#f1cc11", 
     };
   };
+  const onClick = async () => {
+    const { updatedProfiles } = await resetProfileInfo();
+    setProfileInfo(updatedProfiles);
+  }
   return (
     <div>
       <header className="header">
@@ -18,6 +23,7 @@ function Header() {
         <nav>
             <NavLink className="link" style={navLinkStyles} to="/edit">Edit My Profile</NavLink>
             <NavLink className="link" style={navLinkStyles} to="/">Browse for Friends</NavLink>
+            <button onClick={onClick} className="link">Reset Profile Information</button>
         </nav>
         </div>
       </header>
