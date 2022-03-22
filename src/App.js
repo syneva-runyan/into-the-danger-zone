@@ -50,8 +50,9 @@ function App() {
               path="/edit"
               element={
                   <EditProfile
-                   profile={profileInfo[loggedInUser]}
+                   profile={profileInfo && profileInfo[loggedInUser]}
                    updateProfile={updateProfile}
+                   profileKey={loggedInUser}
                 />
               }
             />

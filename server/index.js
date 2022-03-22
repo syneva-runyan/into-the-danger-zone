@@ -1,20 +1,20 @@
 const express = require('express');
+const router = express.Router();
 const fs = require('fs');
 const cors = require('cors');
-// const url = require('url');
-// const bodyParser = require('body-parser');
+const bodyParser = require('body-parser');
 
 const app = express();
 
 app.use(cors());
+app.use(express.json());
+app.use(bodyParser.json());
+app.use("/", router);
 
-// app.use(express.static('public', {}));
-// // parse application/json
-// app.use(bodyParser.json());
 
 app.get('/', function (req, res) {
     res.setHeader("Access-Control-Allow-Origin", "*");
-    fs.readFile('../public/profileInfo.json', 'utf8', (err, data) => {
+    fs.readFile('./profileInfo.json', 'utf8', (err, data) => {
         if (err) {
             console.log(`Error reading file from disk: ${err}`);
             res.send("error")
@@ -27,11 +27,34 @@ app.get('/', function (req, res) {
     });
 });
 
-app.post('/setProfileInfo', function(request, respond) {
-    // filePath = __dirname + '/public/profileInfo.json';
-    // fs.appendFile(filePath, request.body, function () {
-    //     respond.end();
-    // });
+app.post('/updateProfile', function(req, res) {
+    res.setHeader("Access-Control-Allow-Origin", "*");
+
+    // check to make sure profile info provided. 
+    // TODO add validation.
+    const { profileKey, updatedProfile } = req.body;
+
+    fs.readFile('./profileInfo.json', 'utf8', (err, data) => {
+        if (err) {
+            console.log(`Error reading file from disk: ${err}`);
+            res.send("error");
+        } else {
+            const profileInfo = JSON.parse(data);
+            profileInfo[profileKey] = updatedProfile;
+            fs.writeFile('./profileInfo.json', JSON.stringify(profileInfo), (err) => {
+                if (err) {
+                    res.send("error");
+                } else {
+                    res.json({"status": "success", updatedProfile });
+                    return;
+                }
+              });
+        }
+    });
 });
 
-app.listen(8080);
+var server =  app.listen(8080, function () {  
+    var host = server.address().address;  
+    var port = server.address().port;  
+    console.log("Example app listening at http://%s:%s", host, port)  
+});

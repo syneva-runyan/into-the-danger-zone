@@ -1,14 +1,14 @@
 import { useState } from 'react';
 import RTE from './RTE';
 import './Edit.css';
+import { setProfileInfo } from './api';
 
-function EditProfile({ profile = {}, updateProfile = () => {}, goToProfile }) {
+function EditProfile({ profile = {}, updateProfile = () => {}, profileKey }) {
     const [name, setProfileName ] = useState(profile.name);
     const [youtubeChannel, setYoutubeChannel ] = useState(profile.youtubeChannel);
     const [twitter, setTwitter ] = useState(profile.twitter);
     const [instagram, setInstagram ] = useState(profile.instagram);
     const [bio, setBio ] = useState(profile.bio);
-    const [saved, setSaved ] = useState(false);
 
 
     /**
@@ -41,16 +41,24 @@ function EditProfile({ profile = {}, updateProfile = () => {}, goToProfile }) {
 
 
     //** Save profile when form is submitted */
-    const save = (e) => {
+    const save = async (e) => {
         e.preventDefault();
-        updateProfile({
+        e.stopPropagation();
+        const { status, updatedProfile } = await setProfileInfo({
             name,
             image: profile.image,
             youtubeChannel,
+            twitter,
+            instagram,
             bio,
-        });
-        setSaved(true);
-        alert("Changes Saved!");
+        }, profileKey);
+        if (status === 'success') {
+            updateProfile(updatedProfile);
+            alert("Changes Saved!");
+            return;
+        }
+
+        // TODO handle error
     }
 
     const setChannel = (e) => {
@@ -115,13 +123,6 @@ function EditProfile({ profile = {}, updateProfile = () => {}, goToProfile }) {
                     <RTE id="bio" value={bio} onChange={setBio} />
                 </div>
             </form>
-            {saved && 
-                <div className="section">
-                <p className="saved"> Changes Saved!<br/>
-                 <button className={"view-profile"} onClick={goToProfile}>View Profile</button>
-                </p>
-                </div>
-            }
         </div>
     );
 };

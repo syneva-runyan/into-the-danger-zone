@@ -2,9 +2,9 @@ import React from 'react';
 import './View.css';
 import { useParams } from "react-router-dom";
 
-function ViewProfile({ profileInfo }) {
+function ViewProfile({ profileInfo = {} }) {
     const { profileId } = useParams();
-    const profile = profileInfo[profileId]; // TODO when invalid profile id provided.
+    const profile = profileInfo[profileId] || {}; // TODO when invalid profile id provided.
 
     return (
         <div>

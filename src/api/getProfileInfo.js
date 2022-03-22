@@ -10,9 +10,10 @@ const getProfileInfo = async function() {
     const response = await fetch("http://localhost:8080" , requestOptions);
     try {
         const body = await response.json();
-        return body?.profileInfo;
+        return body?.profileInfo; // todo handle error
     } catch (e) {
-        console.log(e);
+        // todo handle error
+        console.error(e);
     }
 };
 
