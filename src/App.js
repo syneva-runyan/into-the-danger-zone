@@ -1,30 +1,36 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import Header from './Header';
 import ViewProfile from './View';
 import EditProfile from './Edit';
 import PeopleYouMayKnow from './PeopleYouMayKnow';
 import TimedOut from './TimedOut';
-import profileInfoOg from './assets/profileInfo';
 import { IdleSessionTimeout } from "idle-session-timeout";
 import {
   BrowserRouter as Router,
   Routes,
   Route,
 } from "react-router-dom";
+import { getProfileInfo } from './api';
 
 // Time out session after 5 min of inactivity.
 let session = new IdleSessionTimeout(1000 * 60 * 5);
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState('kenny'); // TODO create log ins
-  const [profileInfo, setProfileInfo] = useState(profileInfoOg); // TODO persist changes.
+  const [profileInfo, setProfileInfo] = useState({});
   const [isTimedOut, setIsTimedOut] = useState(false);
   session.onTimeOut = () => {
     // mock a timed out state.
     setIsTimedOut(true);
   };
   session.start();
+
+  // get profile info on startup
+  useEffect(async() => {
+    const profileInfoOg = await getProfileInfo();
+    setProfileInfo(profileInfoOg);
+  }, []);
 
   const updateProfile = (updatedProfile) => {
     setProfileInfo({
