@@ -1,28 +1,41 @@
 # Into the Danger Zone
 
-This project was built to help teach about cross site scripting attacks.
+This project was built to support a conference presentation about cross site scripting attacks.
 
-It is currently a WIP.
+** Project is for educational purposes only.**
 
-TODO:
-* Restyle edit page
-* Add new profile feature
-* Save profile info to local db.
+The project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## XSS Attacks
+
+No validations are written in this application.  
+See if you can successfuly inject and execute code on the site!
 
 ## To Run
 
 In the project directory, you should run:
 
-### `npm install`
+### Install client dependencies
 
-Installs dependencies
+`npm install`
 
-### `npm start`
+### Install server dependencies
 
-Runs the app in the development mode.\
+`cd server && npm install`
+
+### Start up the server
+
+From the /server directory
+
+`node index.js`
+
+Leave the server up and running!
+
+### Start the webapp
+
+From the root project folder
+
+`npm start`
+
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.

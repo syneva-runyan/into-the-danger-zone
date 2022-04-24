@@ -23,7 +23,7 @@ function Header({ setProfileInfo }) {
         <nav>
             <NavLink className="link" style={navLinkStyles} to="/edit">Edit My Profile</NavLink>
             <NavLink className="link" style={navLinkStyles} to="/">Browse for Friends</NavLink>
-            <button onClick={onClick} className="link">Reset Profile Information</button>
+            <button onClick={onClick} className="link">Reset My Profile Information</button>
         </nav>
         </div>
       </header>
