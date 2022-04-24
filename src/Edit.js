@@ -12,6 +12,7 @@ function EditProfile({ profile = {}, updateProfile = () => {}, profileKey }) {
 
 
     /**
+     * An example of what a validation function could look like.
      * Validate provided youtube url before saving
      * @param {string} string 
      */
@@ -63,9 +64,7 @@ function EditProfile({ profile = {}, updateProfile = () => {}, profileKey }) {
 
     const setChannel = (e) => {
         const channel = e.target?.value;
-        if(validateYoutubeChannel(channel)) {
-            setYoutubeChannel(channel);
-        }
+        setYoutubeChannel(channel);
     };
 
     return (
