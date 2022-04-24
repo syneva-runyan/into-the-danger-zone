@@ -2,7 +2,7 @@
 
 This project was built to support a conference presentation about cross site scripting attacks.
 
-** Project is for educational purposes only.**
+**Project is for educational purposes only.**
 
 The project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
