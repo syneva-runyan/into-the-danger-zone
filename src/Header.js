@@ -21,8 +21,8 @@ function Header({ setProfileInfo }) {
         <div className="header-content">
         <button className="logo">Some Social Media Site</button>
         <nav>
-            <NavLink className="link" style={navLinkStyles} to="/edit">Edit My Profile</NavLink>
             <NavLink className="link" style={navLinkStyles} to="/">Browse for Friends</NavLink>
+            <NavLink className="link" style={navLinkStyles} to="/edit">Edit My Profile</NavLink>
             <button onClick={onClick} className="link">Reset My Profile Information</button>
         </nav>
         </div>
